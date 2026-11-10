@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 — CSS Basics Practice</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Задания: Шрамко Злата</h1>
+    </header>
+
+    <main>
+        <section id="beginner">
+            <h2>Beginner</h2>
+            <ul>
+                <li><a href="#">Задание 1</a></li>
+                <li><a href="#">Задание 2</a></li>
+                <li><a href="#">Задание 3</a></li>
+                <li><a href="#">Задание 4</a></li>
+                <li><a href="#">Задание 5</a></li>
+            </ul>
+        </section>
+
+        <section id="intermediate">
+            <h2>Intermediate</h2>
+            <ul>
+                <li><a href="#">Задание 6</a></li>
+                <li><a href="#">Задание 7</a></li>
+                <li><a href="#">Задание 8</a></li>
+                <li><a href="#">Задание 9</a></li>
+                <li><a href="#">Задание 10</a></li>
+            </ul>
+        </section>
+
+        <section id="challenging">
+            <h2>Challenging</h2>
+            <ul>
+                <li><a href="#">Задание 11</a></li>
+                <li><a href="#">Задание 12</a></li>
+                <li><a href="#">Задание 13</a></li>
+                <li><a href="#">Задание 14</a></li>
+                <li><a href="#">Задание 15</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Шрамко Злата</p>
+    </footer>
+
+    <div id="modal" class="modal" hidden>
+        <div class="modal-box">
+            <h3 id="modal-title"></h3>
+            <p>я не поняла куда должна выводить кнопка</p>
+            <button id="modal-close" type="button">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modal-title");
+        const closeBtn = document.getElementById("modal-close");
+
+        document.querySelectorAll("main section ul a").forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                modalTitle.textContent = button.textContent;  // например "Задание 1"
+                modal.hidden = false;
+            });
+        });
+
+        closeBtn.addEventListener("click", function () {
+            modal.hidden = true;
+        });
+
+        // закрытие по клику на тёмный фон
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) modal.hidden = true;
+        });
+
+        // закрытие по Esc
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") modal.hidden = true;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: #e8ecf4;
+    background: linear-gradient(180deg, #0f1522 0%, #0a0e16 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* ---------- Шапка ---------- */
+header {
+    padding: 22px 34px;
+    background: rgba(8, 11, 18, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* ---------- Основной блок ---------- */
+main {
+    padding: 20px 34px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Карточка раздела */
+main section {
+    background: #131928;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 20px 24px;
+}
+
+main section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 12px 0 18px 0;
+}
+
+/* ---------- Сетка кнопок ---------- */
+main section ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 0 10px;
+}
+
+/* Кнопка */
+main section ul a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    background: #1a1f2e;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    color: #e8ecf4;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease,
+                border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+main section ul a:hover {
+    background: #232a40;
+    border-color: rgba(120, 150, 255, 0.55);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+main section ul a:active {
+    transform: translateY(0);
+}
+
+main section ul a:focus-visible {
+    outline: 2px solid #7896ff;
+    outline-offset: 2px;
+}
+
+/* ---------- Футер ---------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #6b7488;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Страницы заданий ---------- */
+.back-link {
+    display: inline-block;
+    margin: 20px 34px;
+    padding: 10px 18px;
+    background: #1a1f2e;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    color: #e8ecf4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.back-link:hover {
+    background: #232a40;
+    border-color: rgba(120, 150, 255, 0.55);
+}
+
+.task {
+    margin: 0 34px 40px;
+    padding: 24px;
+    background: #131928;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 900px) {
+    main section ul { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 560px) {
+    main section ul { grid-template-columns: repeat(2, 1fr); }
+    header h1 { font-size: 1.6rem; }
+    main, header { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ---------- Окошко с сообщением ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal-box {
+    background: #131928;
+    border: 1px solid rgba(120, 150, 255, 0.55);
+    border-radius: 16px;
+    padding: 28px 32px;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.modal-box p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.modal-box button {
+    padding: 10px 22px;
+    background: #1a1f2e;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #e8ecf4;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modal-box button:hover {
+    background: #232a40;
+    border-color: rgba(120, 150, 255, 0.55);
+}
